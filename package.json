@@ -1,0 +1,30 @@
+{
+  "name": "multi-target-build-scaffold",
+  "version": "1.0.0",
+  "description": "A template for other projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blesh/multi-target-build-scaffold.git"
+  },
+  "keywords": [
+    "scaffold",
+    "blueprint"
+  ],
+  "author": "Ben Lesh <ben@benlesh.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blesh/multi-target-build-scaffold/issues"
+  },
+  "homepage": "https://github.com/blesh/multi-target-build-scaffold",
+  "devDependencies": {
+    "babel-core": "^5.1.13",
+    "gaze": "^0.5.1",
+    "glob": "^5.0.5",
+    "mkdirp": "^0.5.0",
+    "rx": "^2.5.2"
+  }
+}
