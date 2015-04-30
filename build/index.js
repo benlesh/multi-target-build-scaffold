@@ -1,5 +1,6 @@
 var watch = require('./observable/watch');
 var babelTranspile = require('./babel');
+var concat = require('./concat');
 
 var noop = function(){};
 
@@ -19,4 +20,9 @@ babelTranspile(files, 'src/', 'dist/amd/', {
   loose: ['all'],
   optional: ['runtime'],
   modules: 'amd'
+}).subscribe(noop);
+
+concat(files, {
+  files: 'dist/amd/**/*.js',
+  outputFile: 'dist/amd-all.js' 
 }).subscribe(noop);

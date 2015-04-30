@@ -5,13 +5,20 @@ var fromGaze = require('./from-gaze');
 var path = require('path');
 var lstat = require('./from-fs-lstat');
 
-module.exports = function watch(pattern) {
-  var starting = fromGlob(pattern)
-    .flatMap(toAddEvents);
-
+module.exports = function watch(pattern, startWithAll) {
+  var files;
   var gazes = fromGaze(pattern);
+  
+  if(startWithAll) {
+    var starting = fromGlob(pattern)
+      .flatMap(toAddEvents);
+    files = Observable.concat(starting, gazes);
+  } else {
+    files = gazes;
+  }
 
-  return Observable.concat(starting, gazes)
+  return files
+    .do(console.log.bind(console))
     .flatMap(getResultStats)
     .filter(toJustFiles)
     .map(backToResult)
